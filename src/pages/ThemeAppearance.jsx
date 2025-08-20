@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { THEMES, getActiveTheme, setActiveTheme, findBySubdomain, logoutTenant } from "../lib/db";
 import "./styles.css";
 
