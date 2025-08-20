@@ -6,7 +6,7 @@ export default function ThemeAppearance() {
   const { tenant } = useParams();
   const customer = findBySubdomain(tenant);
   const activeId = getActiveTheme(tenant);
-
+const navigate = useNavigate();
   if (!customer) {
     return (
       <div className="page">
@@ -15,19 +15,19 @@ export default function ThemeAppearance() {
     );
   }
 
-  const handleActivate = (id) => {
+   const handleActivate = (id) => {
     setActiveTheme(tenant, id);
-    window.location.href = `/${tenant}/appearance/themes`;
+   navigate(`/${tenant}/appearance/themes`);
   };
 
   const handleDeactivate = () => {
     setActiveTheme(tenant, null);
-    window.location.href = `/${tenant}/appearance/themes`;
+   navigate(`/${tenant}/appearance/themes`);
   };
 
   const handleLogout = () => {
     logoutTenant(tenant);
-    window.location.href = `/${tenant}/login`;
+    navigate(`/${tenant}/login`);
   };
 
   return (
